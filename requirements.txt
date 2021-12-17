@@ -2,7 +2,6 @@ fastapi
 uvicorn
 pydantic
 starlette
-fastapi-sqlalchemy
 alembic
 psycopg2
 sqlalchemy~=1.4.7

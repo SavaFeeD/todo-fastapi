@@ -8,6 +8,12 @@ from app.dependencies import response
 
 from dotenv import load_dotenv
 
+from app import models
+from app.database import engine
+
+# DATA BASE init
+models.Base.metadata.create_all(bind=engine)
+
 
 load_dotenv()
 
