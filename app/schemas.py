@@ -6,7 +6,6 @@ from pydantic import BaseModel
 class TaskBase(BaseModel):
     title: str
     description: Optional[str] = None
-    dashboard_id: int
 
 
 class TaskCreate(TaskBase):
@@ -15,6 +14,7 @@ class TaskCreate(TaskBase):
 
 class Task(TaskBase):
     id: int
+    dashboard_id: int
     is_active: bool
 
     class Config:

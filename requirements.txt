@@ -6,3 +6,4 @@ alembic
 psycopg2
 sqlalchemy~=1.4.7
 python-dotenv
+SQLAlchemy-serializer

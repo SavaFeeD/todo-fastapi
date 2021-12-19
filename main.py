@@ -3,13 +3,13 @@ from fastapi.staticfiles import StaticFiles
 
 from starlette import status
 
-from app.routers import dashboards
 from app.dependencies import response
+from app.database import engine
+from app.routers import dashboards, tasks
 
 from dotenv import load_dotenv
 
 from app import models
-from app.database import engine
 
 # DATA BASE init
 models.Base.metadata.create_all(bind=engine)
@@ -22,6 +22,7 @@ app = FastAPI()
 app.mount('/static', StaticFiles(directory='./app/static'), name='static')
 
 app.include_router(dashboards.router)
+app.include_router(tasks.router)
 
 
 @app.get('/')
