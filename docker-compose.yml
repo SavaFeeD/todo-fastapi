@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+    postgres:
+        image: postgres:13.3
+        environment:
+            POSTGRES_DB: "todoapi"
+            POSTGRES_USER: "todouser"
+            POSTGRES_PASSWORD: "s1a2v3a4"
+        ports:
+            - "5432:5432"
+
+    server:
+        build: .
+        command: uvicorn app.main:app --host 0.0.0.0
+        volumes:
+            - .:/app
+        ports:
+            - 8008:8000
+        depends_on:
+            - postgres
